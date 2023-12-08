@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
+
+    <title>首页</title>
+
+
+    <link rel="stylesheet" href="/static/css/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="/static/css/entypo.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/neon-core.css">
+    <link rel="stylesheet" href="/static/css/neon-theme.css">
+    <link rel="stylesheet" href="/static/css/neon-forms.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+
+    <script src="/static/js/jquery-1.11.0.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body class="page-body  page-left-in" data-url="http://neon.dev">
+
+<div class="page-container">
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="home.html">
+                    <h4 style="color: #fff;font-weight: bold;margin-top: 3px">BOSS直聘可视化数据分析</h4>
+                </a>
+            </div>
+
+        </header>
+
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img style="width: 95%;border-radius: 50%" src="/media/{{ userInfo.avatar }}" width="120" alt="">
+                    <span style="text-align: center;padding-top: 200px">欢迎回来，</span>
+                    <strong style="text-align: center;padding-top: 5px">{{ userInfo.username }}</strong>
+                </a>
+            </div>
+
+            <div class="sui-hover inline-links animate-in">
+                <!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                <a href="#">
+                    <i class="entypo-pencil"></i>
+                    New Page
+                </a>
+
+                <a href="mailbox.html">
+                    <i class="entypo-mail"></i>
+                    Inbox
+                </a>
+
+                <a href="extra-lockscreen.html">
+                    <i class="entypo-lock"></i>
+                    Log Off
+                </a>
+
+                <span class="close-sui-popup">&times;</span><!-- this is mandatory -->
+            </div>
+        </div>
+
+
+        <ul id="main-menu" class="">
+
+            <li class="opened active">
+                <a href="/myApp/home">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="entypo-user"></i>
+                    <span>个人中心</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/myApp/selfInfo">
+                            <span>个人信息</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/changePassword">
+                            <span>修改密码</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="ui-panels.html">
+                    <i class="entypo-layout"></i>
+                    <span>数据统计</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/myApp/tableData">
+                            <span>数据总览</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/historyTableData">
+                            <span>历史查阅</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="">
+                    <i class="entypo-chart-pie"></i>
+                    <span>可视化图表</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/myApp/salary">
+                            <i class="entypo-eye"></i>
+                            <span>薪资情况</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/company">
+                            <i class="entypo-suitcase"></i>
+                            <span>企业情况</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/companyTags">
+                            <i class="entypo-clipboard"></i>
+                            <span>福利词云</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/educational">
+                            <i class="entypo-graduation-cap"></i>
+                            <span>学历分布</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/companyStatus">
+                            <i class="entypo-credit-card"></i>
+                            <span>企业融资</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/address">
+                            <i class="entypo-traffic-cone"></i>
+                            <span>城市类型</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div class="main-content">
+
+        <div class="row" style="display: flex">
+
+            <div style="margin-left: auto" class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+                <ul class="list-inline links-list pull-right">
+
+
+                    <li class="sep"></li>
+
+                    <li>
+                        <a href="/myApp/logOut">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="well">
+                    <h1>{{ dateInfo.month }} {{ dateInfo.day }},{{ dateInfo.year }}</h1>
+                    <h3>Welcome to the site <strong>{{ userInfo.username }}</strong></h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-9">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title">用户创建时间饼图</div>
+
+                                <div class="panel-options">
+                                    <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"
+                                       class="bg"><i class="entypo-cog"></i></a>
+                                    <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                    <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="main" style="width: 100%;height: 300px">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title">Latest Users</div>
+
+                                <div class="panel-options">
+                                    <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"
+                                       class="bg"><i class="entypo-cog"></i></a>
+                                    <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                    <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                                    <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+                                </div>
+                            </div>
+                            <table class="table table-bordered table-responsive">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Activity</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Art Ramadani</td>
+                                    <td>CEO</td>
+                                    <td class="text-center"><span class="pie">4,3,5</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Filan Fisteku</td>
+                                    <td>Member</td>
+                                    <td class="text-center"><span class="pie">1,3,4</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>Arlind Nushi</td>
+                                    <td>Co-founder</td>
+                                    <td class="text-center"><span class="pie">5,3,2</span></td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h4>
+                                Real Time Stats
+                                <br>
+                                <small>current server uptime</small>
+                            </h4>
+                        </div>
+
+                        <div class="panel-options">
+                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i
+                                    class="entypo-cog"></i></a>
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="panel-body no-padding">
+                        <div id="rickshaw-chart-demo-2">
+                            <div id="rickshaw-legend"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-3">
+
+                <div class="tile-progress tile-red">
+                    <div class="tile-header">
+                        <h3>Page Views</h3>
+                        <span>so far in our blog, and our website.</span>
+                    </div>
+
+                    <div class="tile-progressbar">
+                        <span data-fill="35.5%"></span>
+                    </div>
+
+                    <div class="tile-footer">
+                        <h4>
+                            <span class="pct-counter">0</span>% increase
+                        </h4>
+
+                        <span>so far in our blog and our website</span>
+                    </div>
+                </div>
+
+                <div class="tile-progress tile-green">
+                    <div class="tile-header">
+                        <h3>Unique Users</h3>
+                        <span>so far in our blog, and our website.</span>
+                    </div>
+
+                    <div class="tile-progressbar">
+                        <span data-fill="51.2%"></span>
+                    </div>
+
+                    <div class="tile-footer">
+                        <h4>
+                            <span class="pct-counter">0</span>% increase
+                        </h4>
+
+                        <span>so far in our blog and our website</span>
+                    </div>
+                </div>
+
+                <div class="tile-progress tile-aqua">
+                    <div class="tile-header">
+                        <h3>Bounce Rate</h3>
+                        <span>so far in our blog, and our website.</span>
+                    </div>
+
+                    <div class="tile-progressbar">
+                        <span data-fill="69.9%"></span>
+                    </div>
+
+                    <div class="tile-footer">
+                        <h4>
+                            <span class="pct-counter">0</span>% increase
+                        </h4>
+
+                        <span>so far in our blog and our website</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default" data-collapsed="0"><!-- to apply shadow add class "panel-shadow" -->
+                    <!-- panel head -->
+                    <div class="panel-heading">
+                        <div class="panel-title">World Maps</div>
+
+                        <div class="panel-options">
+                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-3" class="bg"><i
+                                    class="entypo-cog"></i></a>
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            <a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- panel body -->
+                    <div class="panel-body no-padding">
+                        <script type="text/javascript">
+                            jQuery(document).ready(function ($) {
+                                (function () {
+                                    var myCustomColors = {
+                                        'GR': '#f04239',
+                                        'ES': '#f04239',
+                                        'PT': '#f04239',
+                                        'SE': '#f04239',
+                                        'SI': '#f04239',
+                                        'DK': '#f04239',
+                                        'DE': '#f04239',
+                                        'NL': '#f04239',
+                                        'BE': '#f04239',
+                                        'LU': '#f04239',
+                                        'BG': '#f04239',
+                                        'FR': '#f04239',
+                                        'GB': '#f04239',
+                                        'IE': '#f04239',
+                                        'IT': '#f04239',
+                                        'HR': '#f04239',
+                                        'RO': '#f04239',
+                                        'EE': '#f04239',
+                                        'LV': '#f04239',
+                                        'LT': '#f04239',
+                                        'PL': '#f04239',
+                                        'AT': '#f04239',
+                                        'HU': '#f04239',
+                                        'SK': '#f04239',
+                                        'CZ': '#f04239',
+                                        'LT': '#f04239',
+                                        'FI': '#f04239',
+                                        'CY': '#f04239',
+
+                                        // Arab League
+                                        'SA': '#06b53c',
+                                        'SO': '#06b53c',
+                                        'DZ': '#06b53c',
+                                        'EG': '#06b53c',
+                                        'LY': '#06b53c',
+                                        'TN': '#06b53c',
+                                        'YE': '#06b53c',
+                                        'QA': '#06b53c',
+                                        'JO': '#06b53c',
+                                        'KW': '#06b53c',
+                                        'OM': '#06b53c',
+                                        'LB': '#06b53c',
+                                        'SY': '#06b53c',
+                                        'PS': '#06b53c',
+                                        'IQ': '#06b53c',
+                                        'MA': '#06b53c',
+                                        'MR': '#06b53c',
+                                        'DJ': '#06b53c',
+                                        'AE': '#06b53c',
+                                        'BH': '#06b53c',
+                                        'KM': '#06b53c',
+
+                                        // NFATA
+                                        'US': '#2b303a',
+                                        'CA': '#2b303a',
+                                        'MX': '#2b303a',
+                                    };
+
+                                    map = new jvm.WorldMap({
+                                        map: 'world_mill_en',
+                                        container: $('#worldmap'),
+                                        backgroundColor: '#CCC',
+                                        series: {
+                                            regions: [{
+                                                attribute: 'fill'
+                                            }]
+                                        }
+                                    });
+
+                                    map.series.regions[0].setValues(myCustomColors);
+                                })();
+                            });
+
+                        </script>
+                        <div id="worldmap" style="height:450px;width:100%;" class="map"></div>
+
+
+                    </div>
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                        <tr>
+                            <th>Color</th>
+                            <th>Name</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td><a href="#"> <span class="badge badge-secondary">EU</span></a></td>
+                            <td>European Union</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#"> <span class="badge badge-primary">NAFTA</span></a></td>
+                            <td>North American Free Trade Agreement</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#"> <span class="badge badge-success">AL</span></a></td>
+                            <td>Arab League</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div><!-- Footer -->
+        <footer class="main">
+
+
+            Copyright &copy; 2023.BOSS直聘数据可视化分析.<a target="_blank"
+                                                            href="https://www.zhipin.com/chengshi/c101250400/">BOSS直聘</a>
+
+        </footer>
+    </div>
+
+
+    <div id="chat" class="fixed" data-current-user="Art Ramadani" data-order-by-status="1" data-max-chat-history="25">
+
+        <div class="chat-inner">
+
+
+            <h2 class="chat-header">
+                <a href="#" class="chat-close" data-animate="1"><i class="entypo-cancel"></i></a>
+
+                <i class="entypo-users"></i>
+                Chat
+                <span class="badge badge-success is-hidden">0</span>
+            </h2>
+
+
+            <div class="chat-group" id="group-1">
+                <strong>Favorites</strong>
+
+                <a href="#" id="sample-user-123" data-conversation-history="#sample_history"><span
+                        class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
+                <a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
+                <a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
+                <a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
+                <a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
+            </div>
+
+
+            <div class="chat-group" id="group-2">
+                <strong>Work</strong>
+
+                <a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
+                <a href="#" data-conversation-history="#sample_history_2"><span class="user-status is-offline"></span>
+                    <em>Daniel A. Pena</em></a>
+                <a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
+            </div>
+
+
+            <div class="chat-group" id="group-3">
+                <strong>Social</strong>
+
+                <a href="#"><span class="user-status is-busy"></span> <em>Velma G. Pearson</em></a>
+                <a href="#"><span class="user-status is-offline"></span> <em>Margaret R. Dedmon</em></a>
+                <a href="#"><span class="user-status is-online"></span> <em>Kathleen M. Canales</em></a>
+                <a href="#"><span class="user-status is-offline"></span> <em>Tracy J. Rodriguez</em></a>
+            </div>
+
+        </div>
+
+        <!-- conversation template -->
+        <div class="chat-conversation">
+
+            <div class="conversation-header">
+                <a href="#" class="conversation-close"><i class="entypo-cancel"></i></a>
+
+                <span class="user-status"></span>
+                <span class="display-name"></span>
+                <small></small>
+            </div>
+
+            <ul class="conversation-body">
+            </ul>
+
+            <div class="chat-textarea">
+                <textarea class="form-control autogrow" placeholder="Type your message"></textarea>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Chat Histories -->
+    <ul class="chat-history" id="sample_history">
+        <li>
+            <span class="user">Art Ramadani</span>
+            <p>Are you here?</p>
+            <span class="time">09:00</span>
+        </li>
+
+        <li class="opponent">
+            <span class="user">Catherine J. Watkins</span>
+            <p>This message is pre-queued.</p>
+            <span class="time">09:25</span>
+        </li>
+
+        <li class="opponent">
+            <span class="user">Catherine J. Watkins</span>
+            <p>Whohoo!</p>
+            <span class="time">09:26</span>
+        </li>
+
+        <li class="opponent unread">
+            <span class="user">Catherine J. Watkins</span>
+            <p>Do you like it?</p>
+            <span class="time">09:27</span>
+        </li>
+    </ul>
+
+
+    <!-- Chat Histories -->
+    <ul class="chat-history" id="sample_history_2">
+        <li class="opponent unread">
+            <span class="user">Daniel A. Pena</span>
+            <p>I am going out.</p>
+            <span class="time">08:21</span>
+        </li>
+
+        <li class="opponent unread">
+            <span class="user">Daniel A. Pena</span>
+            <p>Call me when you see this message.</p>
+            <span class="time">08:27</span>
+        </li>
+    </ul>
+</div>
+
+<!-- Sample Modal (Default skin) -->
+<div class="modal fade" id="sample-modal-dialog-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Widget Options - Default Modal</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw.
+                    Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end
+                    marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope.
+                    Secure active living depend son repair day ladies now.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sample Modal (Skin inverted) -->
+<div class="modal invert fade" id="sample-modal-dialog-2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Widget Options - Inverted Skin Modal</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw.
+                    Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end
+                    marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope.
+                    Secure active living depend son repair day ladies now.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sample Modal (Skin gray) -->
+<div class="modal gray fade" id="sample-modal-dialog-3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Widget Options - Gray Skin Modal</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw.
+                    Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end
+                    marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope.
+                    Secure active living depend son repair day ladies now.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/static/css/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="/static/css/rickshaw.min.css">
+
+<!-- Bottom Scripts -->
+<script src="/static/js/main-gsap.js"></script>
+<script src="/static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/joinable.js"></script>
+<script src="/static/js/resizeable.js"></script>
+<script src="/static/js/neon-api.js"></script>
+<script src="/static/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/static/js/jquery-jvectormap-europe-merc-en.js"></script>
+<script src="/static/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="/static/js/jquery.sparkline.min.js"></script>
+<script src="/static/js/d3.v3.js"></script>
+<script src="/static/js/rickshaw.min.js"></script>
+<script src="/static/js/neon-chat.js"></script>
+<script src="/static/js/neon-custom.js"></script>
+<script src="/static/js/neon-demo.js"></script>
+<script src="/static/js/echarts.min.js"></script>
+<script>
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            top: '5%',
+            left: 'center'
+        },
+        series: [
+            {
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 20,
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: {{ userCreateData | safe }}
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+</body>
+</html>

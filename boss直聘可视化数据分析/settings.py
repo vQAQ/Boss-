@@ -47,7 +47,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.userInfoMiddleWare.UserMW'
 ]
+
+# http://127.0.0.1:8000/myApp/login/
 
 ROOT_URLCONF = 'boss直聘可视化数据分析.urls'
 

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neon Admin Panel">
+    <meta name="author" content="">
+
+    <title>企业情况</title>
+
+
+    <link rel="stylesheet" href="/static/css/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="/static/css/entypo.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/neon-core.css">
+    <link rel="stylesheet" href="/static/css/neon-theme.css">
+    <link rel="stylesheet" href="/static/css/neon-forms.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+
+    <script src="/static/js/jquery-1.11.0.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body class="page-body  page-left-in" data-url="http://neon.dev">
+
+<div class="page-container">
+    <div class="sidebar-menu">
+        <header class="logo-env">
+            <div class="logo">
+                <a href="index.html">
+                    <h4 style="color: #fff;font-weight: bold;margin-top: 3px">BOSS直聘可视化数据分析</h4>
+                </a>
+            </div>
+
+        </header>
+
+        <div class="sidebar-user-info">
+
+            <div class="sui-normal">
+                <a href="#" class="user-link">
+                    <img style="width: 95%;border-radius: 50%" src="/media/{{ userInfo.avatar }}" width="120" alt="">
+                    <span style="text-align: center;padding-top: 200px">欢迎回来，</span>
+                    <strong style="text-align: center;padding-top: 5px">{{ userInfo.username }}</strong>
+                </a>
+            </div>
+
+            <div class="sui-hover inline-links animate-in">
+                <!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                <a href="#">
+                    <i class="entypo-pencil"></i>
+                    New Page
+                </a>
+
+                <a href="mailbox.html">
+                    <i class="entypo-mail"></i>
+                    Inbox
+                </a>
+
+                <a href="extra-lockscreen.html">
+                    <i class="entypo-lock"></i>
+                    Log Off
+                </a>
+
+                <span class="close-sui-popup">&times;</span><!-- this is mandatory -->
+            </div>
+        </div>
+
+        <ul id="main-menu" class="">
+
+            <li>
+                <a href="/myApp/home">
+                    <i class="entypo-gauge"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="entypo-user"></i>
+                    <span>个人中心</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/myApp/selfInfo">
+                            <span>个人信息</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/changePassword">
+                            <span>修改密码</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="ui-panels.html">
+                    <i class="entypo-layout"></i>
+                    <span>数据统计</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/myApp/tableData">
+                            <span>数据总览</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/historyTableData">
+                            <span>历史查阅</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="opened active">
+                <a href="">
+                    <i class="entypo-chart-pie"></i>
+                    <span>可视化图表</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/myApp/salary">
+                            <i class="entypo-eye"></i>
+                            <span>薪资情况</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/myApp/company">
+                            <i class="entypo-suitcase"></i>
+                            <span>企业情况</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/companyTags">
+                            <i class="entypo-clipboard"></i>
+                            <span>福利词云</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/educational">
+                            <i class="entypo-graduation-cap"></i>
+                            <span>学历分布</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/companyStatus">
+                            <i class="entypo-credit-card"></i>
+                            <span>企业融资</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/myApp/address">
+                            <i class="entypo-traffic-cone"></i>
+                            <span>城市类型</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+    <div class="main-content">
+
+        <div class="row" style="display: flex">
+            <div style="margin-left: auto" class="col-md-6 col-sm-4 clearfix hidden-xs">
+                <ul class="list-inline links-list pull-right">
+                    <li class="sep"></li>
+                    <li>
+                        <a href="/myApp/logOut">
+                            退出登录 <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <hr>
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="#"><i class="entypo-home"></i>可视化图表</a>
+            </li>
+            <li class="active">
+                <strong>
+                    企业情况
+                </strong>
+            </li>
+        </ol>
+        <h2>企业情况</h2>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-info" data-collapsed="0">
+                    <div class="panel-heading">
+                        <div class="panel-title">选择职业</div>
+                        <div class="panel-options">
+                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"
+                               class="bg"><i class="entypo-cog"></i></a>
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        {#选择框逻辑#}
+                        <div class="btn-group">
+                            {% if type == 'all' %}
+                                <a href="#" type="button" class="btn btn-success">全部</a>
+                            {% else %}
+                                <a href="/myApp/company?type=all" type="button" class="btn btn-default">全部</a>
+                            {% endif %}
+                            {% for i in typeList %}
+                                {% if i == type %}
+                                    <a href="#" type="button" class="btn btn-success">{{ i }}</a>
+                                {% else %}
+                                    <a href="/myApp/company?type={{ i }}" type="button"
+                                       class="btn btn-default">{{ i }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-warning" data-collapsed="0">
+                    <div class="panel-heading">
+                        <div class="panel-title">行业数量</div>
+
+                        <div class="panel-options">
+                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"
+                               class="bg"><i class="entypo-cog"></i></a>
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="main" style="width: 100%;height: 480px"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-warning" data-collapsed="0">
+                    <div class="panel-heading">
+                        <div class="panel-title">公司地址</div>
+
+                        <div class="panel-options">
+                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"
+                               class="bg"><i class="entypo-cog"></i></a>
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="mainTwo" style="width: 100%;height: 480px"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-warning" data-collapsed="0">
+                    <div class="panel-heading">
+                        <div class="panel-title">公司人数</div>
+
+                        <div class="panel-options">
+                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"
+                               class="bg"><i class="entypo-cog"></i></a>
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="mainThree" style="width: 100%;height: 480px"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="main">
+
+            Copyright &copy; 2023.BOSS直聘数据可视化分析.<a target="_blank"
+                                                            href="https://www.zhipin.com/chengshi/c101250400/">BOSS直聘</a>
+
+        </footer>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/static/css/jquery-jvectormap-1.2.2.css">
+<link rel="stylesheet" href="/static/css/rickshaw.min.css">
+
+<script src="/static/js/main-gsap.js"></script>
+<script src="/static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/joinable.js"></script>
+<script src="/static/js/resizeable.js"></script>
+<script src="/static/js/neon-api.js"></script>
+<script src="/static/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/static/js/jquery-jvectormap-europe-merc-en.js"></script>
+<script src="/static/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="/static/js/jquery.sparkline.min.js"></script>
+<script src="/static/js/d3.v3.js"></script>
+<script src="/static/js/rickshaw.min.js"></script>
+<script src="/static/js/neon-chat.js"></script>
+<script src="/static/js/neon-custom.js"></script>
+<script src="/static/js/neon-demo.js"></script>
+<script src="/static/js/echarts.min.js"></script>
+
+<script src="/static/js/fileinput.js"></script>
+{#行业数量柱状图#}
+<script>
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        title: {
+            text: '行业数量柱状图'
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {show: true, readOnly: true},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        color: ['#707f9b'],
+        legend: {
+            data: ['行业个数']
+        },
+        xAxis: {
+            type: 'category',
+            data: {{ rowBarData | safe }}
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name: '行业个数',
+                data: {{ columnBarData | safe }},
+                type: 'bar',
+                markPoint: {
+                    data: [
+                        {type: 'max', name: 'Max'},
+                        {type: 'min', name: 'min'},
+                    ]
+                },
+                markLine: {
+                    data: [{type: 'average', name: 'AVG'}]
+                },
+                itemStyle: {
+                    normal: {
+                        color: (params) => {
+                            var colorList = ['#c23531', '#2f4554', '#ADFF2F', '#2F4F4F', '#1E90FF', '#7B68EE']
+                            return colorList[Math.floor(Math.random() * colorList.length)]
+                        }
+                    }
+                }
+            }
+        ]
+    };
+    option && myChart.setOption(option);
+</script>
+{#公司地址环形图#}
+<script>
+    var chartDom = document.getElementById('mainTwo');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        title: {
+            text: '公司地址饼图',
+            padding: [10, 0, 0, 220]
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {show: true, readOnly: true},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            {#分页#}
+            type: 'scroll',
+            top: '5%',
+            x: 'left',
+            y: 'top',
+            orient: 'vertical',
+            padding: [-20, 0, 0, 0]
+        },
+        series: [
+            {
+                name: '公司地址数量',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 30,
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: {{ pieData | safe }}
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+{#公司人数折现图#}
+<script>
+    var chartDom = document.getElementById('mainThree');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        title: {
+            text: '公司人数折线图',
+            {#padding: [10, 0, 0, 220]#}
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {show: true, readOnly: true},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                lineStyle: {
+                    width: 3,
+                    color: '#019688'
+                }
+            },
+        },
+        grid: {
+            left: '4%',
+            right: '3',
+            bottom: '3%',
+            containLabel: true,
+        },
+        legend: {},
+        color: ['#019688', '#0119AC2'],
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: {{ companyPeople | safe }},
+            {#图形上的竖线#}
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    width: 1,
+                    type: 'solid',
+                    color: 'rgba(226,226,226,0.5)',
+                },
+            },
+            axisTick: {
+                show: false,
+            }
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name: '公司人数',
+                data: {{ lineData }},
+                type: 'line',
+                areaStyle: {},
+                symbolSize: 6,
+                {#使折线平滑#}
+                smooth: true,
+                itemStyle: {
+                    borderWidth: 2,
+                }
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+</body>
+</html>
